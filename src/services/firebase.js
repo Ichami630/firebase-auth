@@ -1,8 +1,8 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
-import { getAuth,createUserWithEmailAndPassword,sendEmailVerification,signInWithEmailAndPassword
- } from "firebase/auth"; 
+import { getAuth,createUserWithEmailAndPassword,sendEmailVerification,signInWithEmailAndPassword,
+ signOut} from "firebase/auth"; 
 
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
@@ -23,6 +23,7 @@ const auth = getAuth(app); // Initialize Firebase Authentication and get a refer
 
 export {auth,createUserWithEmailAndPassword,
   sendEmailVerification,
-  signInWithEmailAndPassword
+  signInWithEmailAndPassword,
+  signOut
 }
 export default app; // Export the initialized app for use in other parts of your application

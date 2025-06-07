@@ -6,7 +6,7 @@ import { auth, signInWithEmailAndPassword } from '../../services/firebase';
 export default function Login() {
   const [password, setPassword] = useState('');
   const [email, setEmail] = useState('');
-  const [loading, setLoading] = useState(false); // loader state
+  const [loading, setLoading] = useState(false); 
 
   const handleSubmit = async (e) => {
     e.preventDefault();
