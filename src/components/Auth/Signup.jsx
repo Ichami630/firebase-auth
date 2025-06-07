@@ -2,7 +2,7 @@
 import React,{useState} from 'react';
 import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import {auth,createUserWithEmailAndPassword} from '../../services/firebase'; // Import Firebase auth functions
+import {auth,createUserWithEmailAndPassword,sendEmailVerification} from '../../services/firebase'; // Import Firebase auth functions
 
 export default function Signup() {
   const [fullName, setFullName] = useState('');
@@ -15,6 +15,7 @@ export default function Signup() {
     try {
       const userCredential = await createUserWithEmailAndPassword(auth, email, password);
       const user = userCredential.user;
+      await sendEmailVerification(user);
       console.log("User signed up successfully:", user);
       toast.success("Sign up successful!");
     } catch (error) {
