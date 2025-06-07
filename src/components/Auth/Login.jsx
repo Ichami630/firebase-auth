@@ -2,6 +2,7 @@
 import React,{useState} from 'react';
 import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import { auth,signInWithEmailAndPassword } from '../../services/firebase';
 
 export default function Login() {
   const [password,setPassword] = useState('');
@@ -9,10 +10,15 @@ export default function Login() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(password,email)
-    setEmail('')
-    setPassword('')
-    toast.success("login successfully")
+    try {
+      await signInWithEmailAndPassword(auth,email,password)
+      toast.success('login successfully')
+      setTimeout(()=>{
+        window.location.href = "/"
+      },1000)
+    } catch (error) {
+      toast.error(error.message)
+    }
   }
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100 px-4">
