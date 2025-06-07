@@ -1,5 +1,4 @@
-// src/components/Header.js
-import React from 'react';
+
 import UserProfile from './UserProfile';
 import { UserProvider } from '../contexts/UserContext';
 
