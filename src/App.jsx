@@ -6,18 +6,16 @@ import ProtectedRoute from './components/ProtectedRoute';
 import Header from './components/Header'; // Your header component
 import Login  from './components/Auth/Login';
 import Signup from './components/Auth/Signup';
+import DashboardLayout from './layouts/DashboardLayout';
 
 const App = () => {
   return (
     <AuthProvider>
       <Router>
         <Routes>
-          <Route path='/' element={
-            <ProtectedRoute>
-              <Route index element={<Header />} />
-              {/* <Route path='/home' element={<Home />} /> */}
-            </ProtectedRoute>
-          } />
+        <Route element={<ProtectedRoute><DashboardLayout /></ProtectedRoute>}>
+          <Route path="/" element={<Header />} />
+        </Route>
           <Route path='/login' element={<Login />} />
           <Route path='/signup' element={<Signup />} />
         </Routes>
