@@ -6,6 +6,7 @@ import ProtectedRoute from './components/ProtectedRoute';
 import Header from './components/Header'; // Your header component
 import Login  from './components/Auth/Login';
 import Signup from './components/Auth/Signup';
+import ForgotPassword from './components/Auth/ForgotPassword';
 import DashboardLayout from './layouts/DashboardLayout';
 
 const App = () => {
@@ -18,6 +19,7 @@ const App = () => {
         </Route>
           <Route path='/login' element={<Login />} />
           <Route path='/signup' element={<Signup />} />
+          <Route path='/forgot-password' element={<ForgotPassword />} />
         </Routes>
       </Router>
       <ToastContainer />
