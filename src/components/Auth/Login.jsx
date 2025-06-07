@@ -14,7 +14,7 @@ export default function Login() {
       await signInWithEmailAndPassword(auth,email,password)
       toast.success('login successfully')
       setTimeout(()=>{
-        window.location.href = "/"
+        window.location.href = "/home"
       },1000)
     } catch (error) {
       toast.error(error.message)
